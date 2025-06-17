@@ -3,19 +3,53 @@
 <head>
   <meta charset="utf-8">
   <title>SSC CGL Meeting Email</title>
-  <link rel="icon" type="image/jpeg" href="s-icon.jpeg">
 </head>
-
 <body style="font-family: sans-serif; padding: 20px; text-align: center;">
-  <h1>Send Email to Hon’ble MoS (PP)</h1>
-  <p>Tap the button below to draft the email from your account:</p>
+  <h1>Send Meeting Request Email</h1>
+  <p>Tap a button below to draft and send the email from your Gmail account:</p>
 
-  <a href="mailto:drjitendras@gmail.com,apsmospmo@gmail.com,jitendra.s@mp.sansad.in,mos-pp@nic.in,ps.dopt@nic.in?subject=Urgent%20Meeting%20Request%20with%20Hon%E2%80%99ble%20MoS%20(PP)%20Regarding%20SSC%20CGL%202025%20Age%20Reckoning%20Date&body=Respected%20Sir,%0A%0AWe,%20a%20group%20of%20SSC%20CGL%202024%20aspirants,%20humbly%20request%20an%20urgent%20meeting%20with%20you%20regarding%20a%20serious%20concern.%20Due%20to%20irregularities%20in%20CGL%202024%20and%20the%20final-attempt%20situation%20faced%20by%20many,%20we%20seek%20your%20kind%20intervention%20for%20changing%20the%20age%20reckoning%20date%20to%201st%20January%20for%20SSC%20CGL%202025%20%E2%80%94%20as%20was%20done%20in%202015%20and%202016.%0A%0AThe%20notification%20is%20already%20out%20and%20form-filling%20is%20ongoing,%20so%20time%20is%20very%20limited.%0A%0AWe%20request%20just%20a%20few%20minutes%20of%20your%20time%20to%20present%20our%20case%20in%20person.%20Kindly%20grant%20us%20this%20opportunity.%0A%0AContact:%20+91-8219239139%0ASincerely,%0AConcerned%20SSC%20CGL%202024%20Aspirants" 
-     style="display: inline-block; font-size: 18px; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">
-    📧 Open Email Draft
-  </a>
+  <!-- Button for Hon'ble MoS (PP) -->
+  <button onclick="sendToMoS()" style="font-size: 18px; padding: 10px 20px; margin: 10px;">
+    📧 Email Hon'ble MoS (PP)
+  </button>
 
-  <!-- Visible Icon in Corner -->
+  <!-- Button for PS, DoPT -->
+  <button onclick="sendToPSDoPT()" style="font-size: 18px; padding: 10px 20px; margin: 10px;">
+    📧 Email PS, DoPT
+  </button>
+
+  <script>
+    function sendToMoS() {
+      const mailto = 'drjitendras@gmail.com,apsmospmo@gmail.com,jitendra.s@mp.sansad.in,mos-pp@nic.in,ps.dopt@nic.in';
+      const subject = encodeURIComponent("Urgent Meeting Request with Hon’ble MoS (PP) Regarding SSC CGL 2025 Age Reckoning Date");
+      const body = encodeURIComponent(
+        "Respected Sir,\n\n" +
+        "We, a group of SSC CGL 2024 aspirants, humbly request an urgent meeting with you regarding a serious concern. Due to irregularities in CGL 2024 and the final-attempt situation faced by many, we seek your kind intervention for changing the age reckoning date to 1st January for SSC CGL 2025 — as was done in 2015 and 2016.\n\n" +
+        "The notification is already out and form-filling is ongoing, so time is very limited.\n\n" +
+        "We request just a few minutes of your time to present our case in person. Kindly grant us this opportunity.\n\n" +
+        "Contact: +91-8219239139\n" +
+        "Sincerely,\nConcerned SSC CGL 2024 Aspirants"
+      );
+      window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
+    }
+
+    function sendToPSDoPT() {
+      const mailto = 'ps.dopt@nic.in';
+      const subject = encodeURIComponent("Request for Meeting Regarding SSC CGL 2025 Age Reckoning Date");
+      const body = encodeURIComponent(
+        "Respected Madam,\n\n" +
+        "We, a group of SSC CGL 2024 aspirants, humbly request your kind attention to a matter of urgency.\n\n" +
+        "Due to serious irregularities in SSC CGL 2024 and the last-attempt status of many candidates, we request a reconsideration of the age reckoning date for SSC CGL 2025 to be set as 1st January — as was done previously in 2015 and 2016.\n\n" +
+        "We seek a short meeting to present our concerns in person.\n\n" +
+        "Thank you for your time and understanding.\n\n" +
+        "Contact: +91-8219239139\n" +
+        "Sincerely,\nConcerned SSC CGL 2024 Aspirants"
+      );
+      window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+  <!-- Floating icon -->
   <div style="position: fixed; top: 10px; left: 10px;">
     <img src="s-icon.jpeg" alt="S Icon" style="width: 60px; height: 60px; border-radius: 10px;">
   </div>
