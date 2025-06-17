@@ -6,16 +6,11 @@
 </head>
 <body style="font-family: sans-serif; padding: 20px; text-align: center;">
   <h1>Send Meeting Request Email</h1>
-  <p>Tap a button below to draft and send the email from your Gmail account:</p>
+  <p>Tap the button below to draft and send the email from your Gmail account:</p>
 
   <!-- Button for Dr. Jitendra Singh -->
   <button onclick="sendToMoS()" style="font-size: 18px; padding: 10px 20px; margin: 10px;">
     📧 DR. JITENDRA SINGH
-  </button>
-
-  <!-- Button for Secretary -->
-  <button onclick="sendToPSDoPT()" style="font-size: 18px; padding: 10px 20px; margin: 10px;">
-    📧 SECRETARY
   </button>
 
   <script>
@@ -32,21 +27,6 @@
       );
       window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
     }
-
-    function sendToPSDoPT() {
-      const mailto = 'secy_mop@nic.in ';
-      const subject = encodeURIComponent("Request for Meeting Regarding SSC CGL 2025 Age Reckoning Date");
-      const body = encodeURIComponent(
-        "Respected Madam,\n\n" +
-        "We, a group of SSC CGL 2024 aspirants, humbly request your kind attention to a matter of urgency.\n\n" +
-        "Due to serious irregularities in SSC CGL 2024 and the last-attempt status of many candidates, we request a reconsideration of the age reckoning date for SSC CGL 2025 to be set as 1st January — as was done previously in 2015 and 2016.\n\n" +
-        "We seek a short meeting to present our concerns in person.\n\n" +
-        "Thank you for your time and understanding.\n\n" +
-        "Contact: +91-8219239139\n" +
-        "Sincerely,\nConcerned SSC CGL 2024 Aspirants"
-      );
-      window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
-    }
   </script>
 
   <!-- Floating icon -->
@@ -55,3 +35,4 @@
   </div>
 </body>
 </html>
+
