@@ -10,32 +10,62 @@
 
   <!-- Buttons for each individual email -->
   <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-    <button onclick="sendEmail(1)" style="font-size: 16px; padding: 10px 20px;">✅ Email 1</button>
-    <button onclick="sendEmail(2)" style="font-size: 16px; padding: 10px 20px;">✅ Email 2</button>
-    <button onclick="sendEmail(3)" style="font-size: 16px; padding: 10px 20px;">✅ Email 3</button>
-    <button onclick="sendEmail(4)" style="font-size: 16px; padding: 10px 20px;">✅ Email 4</button>
-    <button onclick="sendEmail(5)" style="font-size: 16px; padding: 10px 20px;">✅ Email 5</button>
-    <button onclick="sendEmail(6)" style="font-size: 16px; padding: 10px 20px;">✅ Email 6</button>
-    <button onclick="sendEmail(7)" style="font-size: 16px; padding: 10px 20px;">✅ Email 7</button>
-    <button onclick="sendEmail(8)" style="font-size: 16px; padding: 10px 20px;">✅ Email 8</button>
-    <button onclick="sendEmail(9)" style="font-size: 16px; padding: 10px 20px;">✅ Email 9</button>
-    <button onclick="sendEmail(10)" style="font-size: 16px; padding: 10px 20px;">✅ Email 10</button>
-  </div>
+    <script>
+      const emails = [
+        {
+          subject: "Confirmed Meeting Not Allowed Yesterday – Request for Urgent Meeting Today",
+          body: `Respected Madam,\n\nWe had received verbal confirmation for a meeting on 19 June to raise concerns regarding serious irregularities in SSC CGL 2024 and the need to consider 1st January as the age reckoning date, as done in 2015 and 2016.\nTwo aspirants waited the entire day outside the DoPT office but were not allowed to meet. This was not our fault. The form closes this Sunday, and no time remains. We humbly request a short meeting today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Waited All Day to Discuss Age Reckoning – Kindly Grant Meeting Today",
+          body: `Respected Madam,\n\nOn 19 June, two aspirants came to DoPT for a meeting confirmed by your office. They waited all day but were not allowed in.\nWe came to raise the issue of age reckoning for the ongoing form and how irregularities in SSC CGL 2024 unfairly affected last-attempt candidates. Kindly grant a few minutes today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Meeting Not Honored Despite Confirmation – Urgent Request to Discuss Age Cut-Off",
+          body: `Respected Madam,\n\nWe came with confirmation to discuss the age cut-off for the ongoing form. Many aspirants lost their final attempt due to SSC CGL 2024 irregularities.\nWe waited all day yesterday but were not allowed. We respectfully request a short meeting today, as the form deadline is near.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Aspirants Not Allowed Entry Yesterday – Please Allow Meeting Today",
+          body: `Respected Madam,\n\nTwo of our members came to DoPT on 19 June after a confirmed appointment to discuss how age reckoning and SSC CGL 2024 irregularities impacted last-attempt aspirants.\nThey waited all day but were not heard. We sincerely request a short meeting today, before the form closes.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Urgent Request to Present Age Reckoning Issue – Denied Entry Yesterday",
+          body: `Respected Madam,\n\nWe had a confirmed meeting on 19 June to request that 1st January be considered as age cut-off due to serious irregularities in SSC CGL 2024.\nDespite waiting the whole day, we were not allowed in. We are still in Delhi and request to meet you today on urgent basis.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Meeting Denied After Confirmation – Kindly Hear Us Today on Age Cut-Off Issue",
+          body: `Respected Madam,\n\nOur concern is legitimate — age reckoning must be set to 1st January due to irregularities in SSC CGL 2024 that affected many last-chance aspirants.\nWe waited yesterday at DoPT after confirmation but were not allowed. We respectfully request a short meeting today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Waiting Since Yesterday to Present Age Reckoning Demand – Please Allow Meeting Today",
+          body: `Respected Madam,\n\nOur group had a confirmed meeting to raise the issue of 1st January age cut-off and the injustice faced by many due to CGL 2024 irregularities.\nWe were not allowed in despite presence the whole day. Kindly allow a short meeting today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Aspirants Denied Entry to Present Valid Age Cut-Off Request – Kindly Meet Us Today",
+          body: `Respected Madam,\n\nWe came to raise a genuine demand — fair age reckoning considering SSC CGL 2024 irregularities. Despite confirmation, two aspirants were denied entry yesterday.\nWe request a short meeting today before the window closes.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Request for Meeting Today – Age Reckoning Concern Left Unheard Yesterday",
+          body: `Respected Madam,\n\nDue to irregularities in SSC CGL 2024, many are unfairly losing their last attempt. We had a meeting confirmed on 19 June but were not allowed in.\nWe are still in Delhi and respectfully request to be heard today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        },
+        {
+          subject: "Not Allowed to Present Age Cut-Off Appeal Yesterday – Kindly Grant Meeting Today",
+          body: `Respected Madam,\n\nWe came to request that 1st January be considered as the age cut-off date, as SSC CGL 2024 had process flaws that impacted last-attempt candidates.\nDespite confirmation, we were not allowed to meet. Kindly hear us today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants`
+        }
+      ];
 
-  <script>
-    function sendEmail(index) {
-      const mailto = 'secy_mop@nic.in';
-      const subject = encodeURIComponent("Not Allowed to Present Age Cut-Off Appeal Yesterday – Kindly Grant Meeting Today");
-      const body = encodeURIComponent(
-        "Respected Madam,\n\n" +
-        "We came to request that 1st January be considered as the age cut-off date, as SSC CGL 2024 had process flaws that impacted last-attempt candidates.\n\n" +
-        "Despite confirmation, we were not allowed to meet. Kindly hear us today.\n\n" +
-        "Contact: +91-8219239139\n" +
-        "Sincerely,\nConcerned SSC CGL 2024 Aspirants"
-      );
-      window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
-    }
-  </script>
+      emails.forEach((email, i) => {
+        document.write(`<button onclick="sendEmail(${i})" style="font-size: 16px; padding: 10px 20px;">✅ Email ${i + 1}</button>`);
+      });
+
+      function sendEmail(index) {
+        const mailto = 'secy_mop@nic.in';
+        const subject = encodeURIComponent(emails[index].subject);
+        const body = encodeURIComponent(emails[index].body);
+        window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
+      }
+    </script>
+  </div>
 
   <!-- Floating icon -->
   <div style="position: fixed; top: 10px; left: 10px;">
