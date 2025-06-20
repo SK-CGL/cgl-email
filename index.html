@@ -5,23 +5,31 @@
   <title>SSC CGL Meeting Email</title>
 </head>
 <body style="font-family: sans-serif; padding: 20px; text-align: center;">
-  <h1>Send Meeting Request Email</h1>
-  <p>Tap the button below to draft and send the email from your Gmail account:</p>
+  <h1>Send Meeting Request Emails</h1>
+  <p>Tap a button below to draft and send the email from your Gmail account:</p>
 
-  <!-- Button for Dr. Jitendra Singh -->
-  <button onclick="sendToMoS()" style="font-size: 18px; padding: 10px 20px; margin: 10px;">
-    📧 DR. JITENDRA SINGH
-  </button>
+  <!-- Buttons for each individual email -->
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+    <button onclick="sendEmail(1)" style="font-size: 16px; padding: 10px 20px;">✅ Email 1</button>
+    <button onclick="sendEmail(2)" style="font-size: 16px; padding: 10px 20px;">✅ Email 2</button>
+    <button onclick="sendEmail(3)" style="font-size: 16px; padding: 10px 20px;">✅ Email 3</button>
+    <button onclick="sendEmail(4)" style="font-size: 16px; padding: 10px 20px;">✅ Email 4</button>
+    <button onclick="sendEmail(5)" style="font-size: 16px; padding: 10px 20px;">✅ Email 5</button>
+    <button onclick="sendEmail(6)" style="font-size: 16px; padding: 10px 20px;">✅ Email 6</button>
+    <button onclick="sendEmail(7)" style="font-size: 16px; padding: 10px 20px;">✅ Email 7</button>
+    <button onclick="sendEmail(8)" style="font-size: 16px; padding: 10px 20px;">✅ Email 8</button>
+    <button onclick="sendEmail(9)" style="font-size: 16px; padding: 10px 20px;">✅ Email 9</button>
+    <button onclick="sendEmail(10)" style="font-size: 16px; padding: 10px 20px;">✅ Email 10</button>
+  </div>
 
   <script>
-    function sendToMoS() {
-      const mailto = 'drjitendras@gmail.com,apsmospmo@gmail.com,jitendra.s@mpls.sansad.in,mos-pp@nic.in,ps.dopt@nic.in';
-      const subject = encodeURIComponent("Urgent Meeting Request with Hon’ble MoS (PP) Regarding SSC CGL 2025 Age Reckoning Date");
+    function sendEmail(index) {
+      const mailto = 'secy_mop@nic.in';
+      const subject = encodeURIComponent("Not Allowed to Present Age Cut-Off Appeal Yesterday – Kindly Grant Meeting Today");
       const body = encodeURIComponent(
-        "Respected Sir,\n\n" +
-        "We, a group of SSC CGL 2024 aspirants, humbly request an urgent meeting with you regarding a serious concern. Due to irregularities in CGL 2024 and the final-attempt situation faced by many, we seek your kind intervention for changing the age reckoning date to 1st January for SSC CGL 2025 — as was done in 2015 and 2016.\n\n" +
-        "The notification is already out and form-filling is ongoing, so time is very limited.\n\n" +
-        "We request just a few minutes of your time to present our case in person. Kindly grant us this opportunity.\n\n" +
+        "Respected Madam,\n\n" +
+        "We came to request that 1st January be considered as the age cut-off date, as SSC CGL 2024 had process flaws that impacted last-attempt candidates.\n\n" +
+        "Despite confirmation, we were not allowed to meet. Kindly hear us today.\n\n" +
         "Contact: +91-8219239139\n" +
         "Sincerely,\nConcerned SSC CGL 2024 Aspirants"
       );
@@ -35,4 +43,3 @@
   </div>
 </body>
 </html>
-
