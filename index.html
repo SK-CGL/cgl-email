@@ -12,16 +12,92 @@
 </head>
 <body style="font-family: sans-serif; padding: 20px; text-align: center;">
   <h1>Send Meeting Request Emails</h1>
-  <p>Tap a button below to draft and send the email from your Gmail account. Sent emails will turn green.</p>
+  <p>Tap a button below to draft and send the email. Sent emails will turn green.</p>
 
-  <!-- Buttons for each individual email -->
   <div id="buttonsContainer" style="display: flex; flex-direction: column; align-items: center; gap: 10px;"></div>
 
   <script>
     const emails = [
-      { subject: "Confirmed Meeting Not Allowed Yesterday – Request for Urgent Meeting Today", body: `Respected Sir,\n\nWe had received verbal confirmation for a meeting on 19 June to raise concerns regarding serious irregularities in SSC CGL 2024 and the need to consider 1st January as the age reckoning date, as done in 2015 and 2016.\nTwo aspirants waited the entire day outside the DoPT office but were not allowed to meet. This was not our fault. The form closes this Sunday, and no time remains. We humbly request a short meeting today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants` },
-      { subject: "Waited All Day to Discuss Age Reckoning – Kindly Grant Meeting Today", body: `Respected Sir,\n\nOn 19 June, two aspirants came to DoPT for a meeting confirmed by your office. They waited all day but were not allowed in.\nWe came to raise the issue of age reckoning for the ongoing form and how irregularities in SSC CGL 2024 unfairly affected last-attempt candidates. Kindly grant a few minutes today.\nContact: +91-8219239139\nSincerely,\nConcerned SSC CGL 2024 Aspirants` },
-      // You can paste all remaining email objects here in the same format...
+      {
+        subject: "Urgent Meeting Request with Hon’ble MoS (PP) Regarding SSC CGL 2025 Age Reckoning Date",
+        body: `Respected Sir,\n\nWe, a group of SSC CGL 2024 aspirants, kindly request a brief meeting to discuss the critical issue of age reckoning for SSC CGL 2025. Due to irregularities in CGL 2024, many are unfairly losing their final attempt.\nWe humbly appeal for your intervention to consider 1st January as the age cut-off, as was rightly done in 2015 and 2016. The form is live, and time is limited.\nPlease allow us 5–10 minutes to explain in person.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Urgent Appeal: Meeting Request on SSC CGL 2025 Age Cut-Off Issue",
+        body: `Respected Sir,\n\nWe seek your urgent attention to a time sensitive issue. Many final attempt aspirants are being left out of SSC CGL 2025 due to the current age reckoning date, despite facing irregularities in CGL 2024.\nWe humbly request a short meeting to appeal for age reckoning from 1st January.\nYour support could protect years of effort and dreams.\n\nSincerely,\nConcerned SSC CGL Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Time Sensitive Request: Meeting Regarding SSC CGL 2025 Age Criteria",
+        body: `Respected Sir,\n\nWith CGL 2025 forms live, time is running out. Candidates like us, who faced numerous problems in 2024, are losing our final chance.\nA small change, considering 1st January for age reckoning, can restore justice.\nWe are ready to meet at your convenience.\n\nSincerely,\nSSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Final Attempt at Risk, Kindly Grant Meeting on SSC CGL 2025 Age Date",
+        body: `Respected Sir,\n\nWe respectfully request a meeting on the issue of age reckoning for CGL 2025. Many are facing disqualification due to arbitrary age reckoning date, even after waiting years and enduring CGL 2024 irregularities.\nPlease allow us 5 minutes to present our sincere plea.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Humble Meeting Request, SSC CGL 2025 Age Reckoning Date Affects Our Future",
+        body: `Respected Sir,\n\nWe are a group of Last attempt SSC CGL aspirants. The current age reckoning date is pushing us out, despite many flaws in CGL 2024.\nWe beg for your intervention and a chance to present our request for 1st January as the cut-off.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Meeting Appeal on SSC CGL 2025 Age Cut Off, Our Lives Are at stake",
+        body: `Respected Sir,\n\nDue to age reckoning from 1st August instead of 1st January, thousands are being left out unfairly from SSC CGL 2025.\nPlease grant us a short meeting to explain how this issue is impacting lives.\nYour decision will mean justice.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Request for Meeting to Address SSC CGL 2025 Age Reckoning Concern",
+        body: `Respected Sir,\n\nWe are among those affected by SSC CGL 2024  flawed conduct. CGL 2025 may become our lost opportunity because of the age reckoning rule.\nPlease let us share our side in a short meeting.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Final Hope: Meeting Request on SSC CGL 2025 Age Reckoning Fairness",
+        body: `Respected Sir,\n\nSSC CGL 2024 irregularities cost us time, and now the age reckoning rule in CGL 2025 may cost us everything.\nWe respectfully request 5 minutes to speak with you and request fairness by using 1st January as the age reckoning date.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Requesting 5 Minutes of Your Time, SSC CGL 2025 Age Relief Needed",
+        body: `Respected Sir,\n\nWe are in urgent need of your support. Several aspirants impacted by CGL 2024 issues have only one hope that is age reckoning from 1st January in CGL 2025.\nWe respectfully seek a meeting to present our appeal.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Meeting Request: CGL 2025 Age Cut-Off to Save Final Attempts",
+        body: `Respected Sir,\n\nA minor change that is setting age reckoning from 1st January, can save careers of many who are otherwise disqualified by CGL 2025 due to CGL 2024 issues.\nWe kindly request a short in person meeting to explain our position.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Urgent Meeting Appeal: CGL 2025 Age Reckoning Relief for Last Attempt Aspirants",
+        body: `Respected Sir,\n\nWe are Last attempt aspirants, impacted by numerous irregularities in SSC CGL 2024. The 1st August age reckoning for 2025 is unfairly ending our journey.\nWe request a few minutes to present our case for 1st January as the fair cut-off. This could give justice to thousands.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Please Grant Meeting: SSC CGL 2025 Age Cut Off Unfairly Hurting Aspirants",
+        body: `Respected Sir,\n\nThe current CGL 2025 age Reckoning date is denying thousands of us our final chance, after years of preparation and Problems in CGL 2024.\nWe request a brief meeting to humbly ask for 1st January to be considered.\nThis meeting is our only hope.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Final Attempt at Stake, Humble Meeting Request on CGL 2025 Age Date",
+        body: `The situation is extremely urgent. We are last attempt candidates affected by SSC CGL 2024 irregularities. With the SSC CGL 2025 form deadline near, we plead for a meeting to present our case for a 1st January cut-off.\nPlease grant us just a few minutes.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Life Changing Meeting Request: SSC CGL 2025 Age Reckoning Issue",
+        body: `Respected Sir,\n\nThis is our last hope. A meeting with you could help reinstate fairness in SSC CGL by considering 1st January as the age cut-off.\nCGL 2024 was our final attempt, and it was marred with numerous issues and court cases. Please allow 5–10 minutes to hear us.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Humble Appeal for Meeting: SSC CGL 2025 Age Reckoning Date is Excluding Us",
+        body: `Respected Sir,\n\nWe wish to personally present the case of many aspirants whose final chance was lost due to irregularities in SSC CGL 2024.\nWe seek your kind consideration to revise the age cut-off for SSC CGL 2025 to 1st January.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Request for Meeting: Age Reckoning Policy in CGL 2025 Hurting Deserving Aspirants",
+        body: `Respected Sir,\n\nDue to irregularities in CGL 2024, many aspirants lost their final attempt unfairly.\nWe request a short meeting to explain why the age reckoning date for SSC CGL 2025 should be reconsidered as 1st January.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Meeting Request: 1st Jan Age Cut-Off Needed for SSC CGL 2025 Justice",
+        body: `Respected Sir,\n\nWe are not asking for favours.We are asking just fairness & compensation by changing the Age Reckoning date to 1 Jan in the CGL 2025.\nPlease grant us time to appeal for age reckoning from 1st January, as done before in 2015, 2016 etc.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Request for Your Time, CGL 2025 Age Reckoning Can Save Our Futures",
+        body: `Respected Sir,\n\nWe sincerely seek a brief meeting to raise our voice about the 1st August age reckoning, which is ending thousands of last attempts unfairly. We faced innumerable problems in CGL 2024.\nWe appeal to your kind consideration for 1st January to be used, as done in 2015–16.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "Critical Meeting Request: Age Reckoning for CGL 2025 Must Be Revised",
+        body: `Respected Sir,\nWe write to you with hope. With just a small change in Date as setting age reckoning to 1st January, you can give back one final fair chance to many deserving aspirants who lost their last chance in CGL 2024 due to numerous irregularities.\nWe are ready to explain in person. Kindly grant us a few minutes.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      },
+      {
+        subject: "One Meeting Could Save Futures, SSC CGL 2025 Age Issue Needs Urgent Attention",
+        body: `Respected Sir,\n\nWe wish to meet and submit our request to revise the age cut off date to 1st January for SSC CGL 2025. Many aspirants have suffered due to CGL 2024 irregularities.\nThis change would ensure fairness for last attempt candidates.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
+      }
     ];
 
     const container = document.getElementById('buttonsContainer');
