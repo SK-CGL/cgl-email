@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>DoPT Email Sender - SSC CGL Age Cut-off</title>
+  <title>SSC Chairman Meeting Requests – Age Reckoning Issue</title>
   <style>
     .sent {
       background-color: #d3ffd3 !important;
@@ -11,112 +11,54 @@
   </style>
 </head>
 <body style="font-family: sans-serif; padding: 20px; text-align: center;">
-  <h1>Send Emails to Shri Manoj Kumar Dwivedi</h1>
-  <p>Click a button below to open a drafted email. Sent emails will turn green.</p>
+  <h1>Send Meeting Requests to Chairman, SSC</h1>
+  <p>Click each button to open a drafted email. Sent emails will turn green.</p>
 
   <div id="buttonsContainer" style="display: flex; flex-direction: column; align-items: center; gap: 10px;"></div>
 
   <script>
     const emails = [
-      {
-        subject: "Humble Request to Recommend 01.01.2025 as Age Cut-off for SSC CGL - Ref: Corr. No. 2792565, Dated 20.06.2025",
-        body: `Respected Sir,\n\nThis is with reference to our representation dated 20 June 2025, submitted to the Secretary, DoPT and officially acknowledged under Correspondence Computer No. 2792565. We have been informed that the matter has been entrusted to you for examination and report.\n\nOn behalf of thousands of aspirants, we humbly request you to kindly recommend 01.01.2025 as the age reckoning date for SSC CGL 2025. For many of us, this is our final attempt, and CGL is the only exam we are eligible and thoroughly prepared for over years. Even Phase 13 forms are closed now, which further limits options for affected aspirants.\n\nThe representation detailed several serious irregularities in CGL 2024, 22 wrong questions, inclusion of overaged JSO candidates, delayed result corrections, and Tier-II admit cards issued just a day before the exam. Aspirants lost their final opportunity not due to performance, but due to systemic failure. Several court cases are ongoing, and even the Hon'ble CAT acknowledged it as an \"unlevel playing field.\"\n\nThe last date to apply for CGL 2025 is 4 July 2025. If action is not taken urgently, thousands of aspirants will be left behind unfairly.\n\nDoPT granted similar relief in CGL 2015 and 2016, and your own OM dated 14.07.1988 (Para 16.2) supports this request, especially when the system itself has failed its candidates.\n\nSir, your timely recommendation to the Secretary can ensure justice and dignity for those with no other door left. We sincerely hope you will support this just cause before the deadline expires.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Kindly Recommend 01.01.2025 for SSC CGL , Urgent Before 4 July Deadline",
-        body: `Respected Sir,\n\nOur acknowledged representation (Corr. No. 2792565) regarding the SSC age cut-off was forwarded to your office.\n\nWe humbly request you to recommend 01.01.2025 as the age cut-off for SSC CGL 2025, in light of CGL 2024 irregularities. Even Phase 13 forms are closed now, which further limits options for affected aspirants.\n\nThe deadline to apply is 4 July 2025. Please help before it’s too late.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Appeal to Recommend 1 Jan 2025 Age Cut-off - SSC CGL Aspirants' Last Hope",
-        body: `Respected Sir,\n\nPlease consider recommending 01.01.2025 as the age reckoning date for SSC CGL 2025.\n\nDue to irregularities in CGL 2024 and last-minute issues, many lost their final attempt unfairly. Now, with the CGL deadline fast approaching on 4 July, we humbly seek urgent relief.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Urgent Request: SSC CGL Age Cut-off Recommendation Needed Before 4 July",
-        body: `Respected Sir,\n\nAs per Corr. No. 2792565, our request for age relief in SSC CGL 2025 is pending your kind recommendation.\n\nWe humbly urge you to support 1 January 2025 as the cut-off. This small step can correct the injustice of CGL 2024 and help thousands apply before 4 July.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Please Hasten Report and Recommend 1 Jan Age Cut-off in SSC CGL 2025",
-        body: `Respected Sir,\n\nTime is running out. SSC CGL form closes on 4 July, and thousands are ineligible due to 1 August cut-off despite many irregularities in CGL 2024.\n\nWe request you to kindly recommend 01.01.2025 to the Secretary and give Last attempt aspirants one fair chance.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Urgent: Kindly Recommend 1 Jan 2025 Age Cut-off for SSC CGL",
-        body: `Respected Sir,\n\nWith the CGL 2025 deadline just days away, we request your kind intervention to urgently recommend 01.01.2025 as the age cut-off.\n\nThousands are unable to apply due to 1 August rule despite facing injustice in CGL 2024.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Please Expedite Age Cut-off Recommendation Before 4 July",
-        body: `Respected Sir,\n\nWe humbly appeal for your quick recommendation of 01.01.2025 as the age cut-off for SSC CGL 2025.\n\nThe application closes on 4 July, and final-attempt aspirants deserve this fair chance after CGL 2024 irregularities.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Last -Attempt CGL Aspirants Await Your Fast Recommendation",
-        body: `Respected Sir,\n\nWe kindly request you to recommend 1 January 2025 as the age reckoning date for CGL 2025 without delay.\n\nThe Secretary has trusted you with this, and thousands are relying on you before 4 July closes their last opportunity.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Recommend 1 Jan Cut-off Now to Save Aspirants Before Deadline",
-        body: `Respected Sir,\n\nPlease kindly expedite your report recommending 01.01.2025 as the age cut-off for SSC CGL 2025.\n\nThe time left is very short. This small step can change the lives of many who were wronged in 2024.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - SSC CGL Deadline Nearing: Kindly Send Recommendation Soon",
-        body: `Respected Sir,\n\nYour quick recommendation for 01.01.2025 as the age cut-off is crucial now.\n\nThe CGL 2025 application closes on 4 July, and aspirants who lost their fair chance last year are left helpless.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Request to Recommend 01.01.2025 Before SSC CGL Closes",
-        body: `Respected Sir,\n\nOnly a few days remain until SSC CGL registration ends on 4 July. We request you to please recommend 01.01.2025 as the age cut-off quickly.\n\nThis simple relief, supported by past precedent and OM 1988, can restore justice to those impacted by CGL 2024 irregularities.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Appeal from Final-Attempt Aspirants to Recommend 1 Jan 2025",
-        body: `Respected Sir,\n\nWe are in our final attempt. CGL 2024 left us defeated not by merit, but by systemic lapses. Now, we are disqualified due to 1 August reckoning.\n\nPlease kindly recommend 01.01.2025 urgently so we may apply before 4 July.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 - Justice Demands Quick Recommendation of 1 Jan Cut-off",
-        body: `Respected Sir,\n\nDoPT has corrected age reckoning before. We humbly request you to recommend 1 January 2025 before the CGL 2025 form closes on 4 July.\n\nYour timely action can uphold Article 14 and restore trust in fair recruitment.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565 – Kindly Recommend 01.01.2025 for SSC CGL Before 4 July",
-        body: `Respected Sir,\n\nWe request your kind recommendation of 01.01.2025 as the age cut-off for SSC CGL 2025, based on our representation (Corr. No. 2792565).\n\nFinal-attempt aspirants, many from very low backgrounds, are left out due to 1 Aug cut-off. Please act before the 4 July deadline.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Kindly Recommend 1 Jan 2025 to Correct Past Injustice",
-        body: `Respected Sir,\n\nWe are not asking for new policies, just the same relief DoPT gave in 2015 and 2016 after notification.\n\nPlease recommend 01.01.2025 as age cut-off before 4 July, so no deserving aspirant is unfairly excluded.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Request to Recommend 01.01.2025 for SSC CGL Before 4 July",
-        body: `Respected Sir,\n\nWith the SSC CGL 2025 deadline approaching on 4 July, we humbly request you to kindly recommend 01.01.2025 as the age cut-off.\n\nThis relief is critical for many aspirants impacted by CGL 2024 irregularities.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Appeal to Recommend 1 Jan Cut-off Urgently for SSC CGL 2025",
-        body: `Respected Sir,\n\nThousands of aspirants await your recommendation on our acknowledged representation.\n\nWe sincerely request you to recommend 01.01.2025 as the age cut-off before the 4 July deadline to ensure justice.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Kindly Send Recommendation for 1 Jan Age Cut-off Before SSC CGL Ends",
-        body: `Respected Sir,\n\nWe respectfully urge you to recommend 1 January 2025 as the age reckoning date for SSC CGL 2025 before 4 July, so affected aspirants can apply.\n\nMany have no other chance left.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Immediate Recommendation Needed for SSC CGL Age Relief",
-        body: `Respected Sir,\n\nPlease expedite your report and recommend 01.01.2025 as the age cut-off for SSC CGL 2025.\n\nThis decision is urgent, with the deadline closing in just few days.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      },
-      {
-        subject: "Corr. No. 2792565, Last-Minute Request to Recommend 1 Jan Cut-off Before SSC Deadline",
-        body: `Respected Sir,\n\nWe humbly make a final request to recommend 1 January 2025 as the age reckoning date for SSC CGL 2025 before 4 July.\n\nThis single step can give thousands a fair chance.\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8219239139`
-      }
+      "We respectfully request an urgent meeting with you tomorrow to discuss the SSC CGL 2025 age reckoning issue.",
+      "Sir, a group of 4–5 aspirants wish to meet you urgently regarding the unfair impact of the current age cut-off.",
+      "Please grant us a short meeting tomorrow to present our concern over the age reckoning date for CGL 2025.",
+      "We are final-attempt aspirants facing exclusion. Kindly allow us a brief discussion on the age issue tomorrow.",
+      "It’s a matter of our future. We humbly request your time tomorrow to discuss the 1 Jan 2025 age reckoning.",
+      "Sir, we are available anytime tomorrow for a brief meeting to discuss the age criteria issue in SSC CGL 2025.",
+      "We appeal for a short meeting with you to present our genuine concern regarding age reckoning for CGL 2025.",
+      "This issue has left us disqualified unfairly. We request a face-to-face meeting with you tomorrow, Sir.",
+      "Sir, please allow a small group of us to meet and explain our situation regarding age reckoning tomorrow.",
+      "We humbly seek a few minutes of your valuable time tomorrow regarding the age cut-off injustice we face.",
+      "It is our last hope, Sir. Please consider meeting us tomorrow to hear our concern about age reckoning.",
+      "Sir, aspirants like us who lost CGL 2024 due to irregularities now face disqualification again. Please meet us.",
+      "We earnestly request a chance to meet and discuss the urgency of revising the age reckoning date.",
+      "Your kind time for a quick meeting tomorrow would bring great relief to affected aspirants like us.",
+      "Please permit us to present our request in person tomorrow regarding the SSC CGL 2025 age cut-off.",
+      "We are requesting a short meeting tomorrow to discuss the serious implications of the current cut-off date.",
+      "Sir, this is a matter of eligibility and fairness. Kindly grant us time for a quick meeting tomorrow.",
+      "This issue needs human hearing. We request an in-person meeting with you tomorrow, Sir.",
+      "Sir, our sincere plea is for a fair chance. Please allow us a quick meeting tomorrow to explain.",
+      "Final-attempt candidates seek your support through a short meeting tomorrow regarding the cut-off injustice."
     ];
 
     const container = document.getElementById('buttonsContainer');
-    emails.forEach((email, i) => {
+    emails.forEach((bodyLine, i) => {
+      const subject = `Urgent Meeting Request – SSC CGL 2025 Age Reckoning Issue [Appeal ${i + 1}]`;
+      const fullBody = `Respected Chairman Sir,\n\n${bodyLine}\n\nWe assure you it will be brief, respectful, and only 4–5 aspirants will attend. The exam is scheduled from 13 to 30 August 2025, and this matter is crucial for us.\n\nSubmitted by: amarsung915@gmail.com\nContact: +91-8219239139\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants`;
+      
       const button = document.createElement('button');
-      button.textContent = `✅ Email ${i + 1}`;
+      button.textContent = `📩 Email ${i + 1}`;
       button.style = "font-size: 16px; padding: 10px 20px;";
       button.onclick = () => {
-        const mailto = 'as-pers.policy-dopt@gov.in';
-        const subject = encodeURIComponent(email.subject);
-        const body = encodeURIComponent(email.body);
-        window.location.href = `mailto:${mailto}?subject=${subject}&body=${body}`;
+        const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
+        const mailSubject = encodeURIComponent(subject);
+        const mailBody = encodeURIComponent(fullBody);
+        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
         button.classList.add('sent');
       };
       container.appendChild(button);
     });
   </script>
 
-  <!-- Floating icon -->
   <div style="position: fixed; top: 10px; left: 10px;">
     <img src="s-icon.jpeg" alt="S Icon" style="width: 60px; height: 60px; border-radius: 10px;">
   </div>
