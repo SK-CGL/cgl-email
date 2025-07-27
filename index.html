@@ -92,4 +92,45 @@
       { subject: "Aspirants Present at SSC HQ – Humble Meeting Request", body: "Respected Sir, We are waiting outside SSC HQ today and would be grateful if you kindly allow us to meet and present our concern personally." },
       { subject: "Kind Request for Today’s Meeting – Aspirants Present at SSC Office", body: "Respected Sir, We are present at the SSC office today and are sincerely requesting a brief meeting to raise an important issue." },
       { subject: "Request for Meeting – Aspirants Waiting Outside SSC Today", body: "Respected Sir, Aspirants from far-off places are waiting outside SSC HQ for a chance to speak to you. Please allow us a short meeting today." },
-      { subject: "Urgent – Aspirants Present at SSC Office Awaiting Meeting", body: "Respected Sir, We are currently present outside your office and res
+      { subject: "Urgent – Aspirants Present at SSC Office Awaiting Meeting", body: "Respected Sir, We are currently present outside your office and respectfully request a short meeting to present our genuine concerns." },
+      { subject: "Meeting Request – Aspirants Outside SSC HQ Today", body: "Respected Sir, Aspirants are standing outside SSC HQ today with a humble request for a personal meeting. Kindly allow us a few minutes." },
+      { subject: "Today’s Meeting Request – Aspirants Waiting at SSC HQ", body: "Respected Sir, We have reached SSC HQ and are outside your office, requesting a short personal meeting today." },
+      { subject: "Aspirants Requesting Immediate Meeting – Present Outside SSC", body: "Respected Sir, Several aspirants have gathered outside the SSC HQ today. Kindly allow us a brief meeting." },
+      { subject: "Kind Request for Meeting – Aspirants Standing Outside SSC", body: "Respected Sir, A few aspirants from different states are waiting outside your office today with a hope to meet you." },
+      { subject: "Appeal for Meeting – Aspirants Outside SSC HQ Today", body: "Respected Sir, We appeal to you to kindly grant a few minutes today for a meeting. Aspirants are waiting outside your office." },
+      { subject: "Today’s Visit – Humble Request for Meeting with Aspirants", body: "Respected Sir, A few aspirants have come to SSC HQ today and are outside your office. Kindly consider our request for a brief meeting." },
+      { subject: "Humble Appeal – Aspirants Waiting at SSC HQ for Meeting", body: "Respected Sir, Aspirants present outside SSC HQ today are requesting your kind permission for a short personal meeting." },
+      { subject: "Request for Interaction – Aspirants Outside SSC HQ Today", body: "Respected Sir, We seek your kind approval for a meeting today. Aspirants are present outside the SSC office." },
+      { subject: "Meeting Request – SSC Aspirants Awaiting Outside HQ", body: "Respected Sir, We humbly request your time for a quick meeting. Aspirants are outside SSC HQ today." },
+      { subject: "Aspirants Present at SSC Today – Kind Meeting Request", body: "Respected Sir, Kindly allow a short meeting today. We are present outside SSC HQ with an important concern." },
+      { subject: "Important – Aspirants Outside SSC Office Today Seeking Meeting", body: "Respected Sir, Aspirants from different places are waiting outside your office today. We kindly request your time for a short meeting." }
+    ];
+
+    const container = document.getElementById('buttonsContainer');
+    const congrats = document.getElementById('congratsMessage');
+
+    emails.forEach((email, i) => {
+      const fullBody = `${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`;
+
+      const button = document.createElement('button');
+      button.textContent = `📩 Email ${i + 1}`;
+      button.onclick = () => {
+        const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
+        const subject = encodeURIComponent(email.subject);
+        const body = encodeURIComponent(fullBody);
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        button.classList.add('sent');
+
+        // Show congrats when all are green
+        const allSent = Array.from(document.querySelectorAll('button')).every(btn =>
+          btn.classList.contains('sent')
+        );
+        if (allSent) {
+          congrats.style.display = 'block';
+        }
+      };
+      container.appendChild(button);
+    });
+  </script>
+</body>
+</html>
