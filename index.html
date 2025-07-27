@@ -50,14 +50,6 @@
       gap: 10px;
     }
 
-    #congratsMessage {
-      display: none;
-      margin-top: 30px;
-      font-size: 20px;
-      color: #00ffcc;
-      font-weight: bold;
-    }
-
     .logo {
       position: fixed;
       top: 10px;
@@ -69,65 +61,66 @@
       height: 60px;
       border-radius: 10px;
     }
+
+    #congratsMessage {
+      display: none;
+      margin-top: 30px;
+      font-size: 20px;
+      color: #00ff99;
+    }
   </style>
 </head>
 <body>
-  <h1>Send Meeting Requests to Chairman, SSC</h1>
-  <p>Click each button to open a drafted email. Sent emails will turn green.</p>
-
-  <div id="buttonsContainer"></div>
-  <div id="congratsMessage">✅ Well done! All emails sent successfully.</div>
-
   <div class="logo">
     <img src="s-icon.jpeg" alt="S Icon">
   </div>
 
+  <h1>Send Meeting Requests to Chairman, SSC</h1>
+  <p>Click each button to open a drafted email. Sent emails will turn green.</p>
+
+  <div id="buttonsContainer"></div>
+  <div id="congratsMessage">🎉 All 20 emails sent. Well done! 🎉</div>
+
   <script>
     const emails = [
-      { subject: "Urgent Meeting Request – Aspirants Waiting Outside SSC HQ", body: "Respected Sir, A group of aspirants from different states has come to the SSC office and is currently waiting outside for a meeting. Kindly allow us a few minutes to present our concerns in person." },
-      { subject: "Request for Immediate Meeting – Aspirants Present at SSC Office", body: "Respected Sir, Aspirants from various states are currently present outside your office. We kindly request you to allow a brief meeting to discuss a pressing issue affecting us." },
-      { subject: "Today’s Visit – Aspirants Requesting Meeting Outside SSC HQ", body: "Respected Sir, We, the CGL aspirants, have reached SSC HQ today and are waiting outside your office. Kindly grant us an opportunity to meet you and explain our issue." },
-      { subject: "Meeting Request – Aspirants Awaiting Outside SSC Office Today", body: "Respected Sir, A group of serious aspirants from various regions is outside the SSC HQ office today. Kindly give us a few minutes of your time for a meeting." },
-      { subject: "Aspirants Waiting Outside – Request for Meeting Today", body: "Respected Sir, Aspirants who have traveled from different parts of the country are currently waiting outside your office. We sincerely request a short meeting today." },
-      { subject: "Aspirants Present at SSC HQ – Humble Meeting Request", body: "Respected Sir, We are waiting outside SSC HQ today and would be grateful if you kindly allow us to meet and present our concern personally." },
-      { subject: "Kind Request for Today’s Meeting – Aspirants Present at SSC Office", body: "Respected Sir, We are present at the SSC office today and are sincerely requesting a brief meeting to raise an important issue." },
-      { subject: "Request for Meeting – Aspirants Waiting Outside SSC Today", body: "Respected Sir, Aspirants from far-off places are waiting outside SSC HQ for a chance to speak to you. Please allow us a short meeting today." },
-      { subject: "Urgent – Aspirants Present at SSC Office Awaiting Meeting", body: "Respected Sir, We are currently present outside your office and respectfully request a short meeting to present our genuine concerns." },
-      { subject: "Meeting Request – Aspirants Outside SSC HQ Today", body: "Respected Sir, Aspirants are standing outside SSC HQ today with a humble request for a personal meeting. Kindly allow us a few minutes." },
-      { subject: "Today’s Meeting Request – Aspirants Waiting at SSC HQ", body: "Respected Sir, We have reached SSC HQ and are outside your office, requesting a short personal meeting today." },
-      { subject: "Aspirants Requesting Immediate Meeting – Present Outside SSC", body: "Respected Sir, Several aspirants have gathered outside the SSC HQ today. Kindly allow us a brief meeting." },
-      { subject: "Kind Request for Meeting – Aspirants Standing Outside SSC", body: "Respected Sir, A few aspirants from different states are waiting outside your office today with a hope to meet you." },
-      { subject: "Appeal for Meeting – Aspirants Outside SSC HQ Today", body: "Respected Sir, We appeal to you to kindly grant a few minutes today for a meeting. Aspirants are waiting outside your office." },
-      { subject: "Today’s Visit – Humble Request for Meeting with Aspirants", body: "Respected Sir, A few aspirants have come to SSC HQ today and are outside your office. Kindly consider our request for a brief meeting." },
-      { subject: "Humble Appeal – Aspirants Waiting at SSC HQ for Meeting", body: "Respected Sir, Aspirants present outside SSC HQ today are requesting your kind permission for a short personal meeting." },
-      { subject: "Request for Interaction – Aspirants Outside SSC HQ Today", body: "Respected Sir, We seek your kind approval for a meeting today. Aspirants are present outside the SSC office." },
-      { subject: "Meeting Request – SSC Aspirants Awaiting Outside HQ", body: "Respected Sir, We humbly request your time for a quick meeting. Aspirants are outside SSC HQ today." },
-      { subject: "Aspirants Present at SSC Today – Kind Meeting Request", body: "Respected Sir, Kindly allow a short meeting today. We are present outside SSC HQ with an important concern." },
-      { subject: "Important – Aspirants Outside SSC Office Today Seeking Meeting", body: "Respected Sir, Aspirants from different places are waiting outside your office today. We kindly request your time for a short meeting." }
+      { subject: "Request for Meeting – SSC CGL Aspirants Waiting Today", body: "Respected Sir,\n\nWe aspirants have come from different states and are currently outside your office requesting a meeting regarding CGL 2024 concerns." },
+      { subject: "Urgent: Meeting Requested by Present Aspirants", body: "Dear Sir,\n\nAspirants are waiting outside your office today, having traveled from various states. Kindly grant us time for a brief discussion." },
+      { subject: "Today’s Meeting Request – Aspirants Present Outside SSC", body: "Sir,\n\nWe humbly request a meeting. Aspirants are outside SSC right now, having come from far to raise our concerns directly." },
+      { subject: "Request to Consider Aspirants Present at SSC Today", body: "Respected Chairman Sir,\n\nPlease meet the aspirants who are presently at SSC HQ, seeking an audience regarding CGL-related concerns." },
+      { subject: "Kindly Grant Meeting to Aspirants Waiting Outside SSC", body: "Sir,\n\nWe respectfully seek your time today. Aspirants are at SSC HQ waiting to discuss critical CGL-related issues." },
+      { subject: "Meeting Appeal – Aspirants Waiting Today Outside SSC Office", body: "Dear Sir,\n\nAspirants from different regions are present today outside your office. We request you to kindly hear us in person." },
+      { subject: "Humble Request: Aspirants Present Today for Meeting", body: "Sir,\n\nWe are present outside SSC, having come from far with the hope of getting a chance to discuss our last attempt issue in CGL." },
+      { subject: "Aspirants Present Today – Request to Meet SSC Chairman", body: "Respected Sir,\n\nWe are at SSC HQ today and humbly request your kind attention for a meeting to raise some urgent concerns." },
+      { subject: "Sir, Kindly Meet Aspirants Waiting Today", body: "Dear Chairman Sir,\n\nWe are currently waiting outside SSC HQ. Please give us a few minutes of your valuable time." },
+      { subject: "Today’s Presence of Aspirants – Request for Meeting", body: "Sir,\n\nAspirants are physically present at SSC today. Kindly give us an opportunity to explain our situation face-to-face." },
+      { subject: "Aspirants from Various States Present Today – Meeting Request", body: "Dear Sir,\n\nWe are aspirants who have gathered today outside your office. Kindly consider granting a brief meeting." },
+      { subject: "CGL Aspirants Present Today at SSC – Request to be Heard", body: "Sir,\n\nWe are gathered at SSC office right now, respectfully requesting your time for a short meeting." },
+      { subject: "Important: Aspirants Waiting Outside SSC Today", body: "Respected Sir,\n\nWe humbly request your attention. Aspirants are outside SSC hoping for a chance to meet you." },
+      { subject: "Face-to-Face Meeting Request – Aspirants Present at SSC", body: "Sir,\n\nPlease give us an opportunity to express our concerns. We are waiting at SSC today." },
+      { subject: "Requesting Immediate Meeting – Aspirants Outside SSC Office", body: "Dear Sir,\n\nWe are waiting outside your office with great hope. Kindly meet us today." },
+      { subject: "Meeting Needed Today – Aspirants Outside SSC", body: "Sir,\n\nAspirants from across India are here outside SSC HQ. Please meet us to hear our concern." },
+      { subject: "CGL Aspirants Requesting to Meet You Today", body: "Respected Sir,\n\nWe are outside SSC, present physically, and hope to be heard today." },
+      { subject: "Kind Request for Brief Meeting – Aspirants Present at SSC", body: "Sir,\n\nYour kind attention is requested today. We are aspirants waiting respectfully at SSC." },
+      { subject: "Today’s Aspirants’ Visit – Request for Audience", body: "Sir,\n\nKindly meet us today. Aspirants are outside hoping for justice and your support." },
+      { subject: "Meeting Appeal from Present Aspirants – SSC HQ", body: "Respected Sir,\n\nAspirants are present today outside SSC. Please grant us a few minutes of your time." }
     ];
 
     const container = document.getElementById('buttonsContainer');
     const congrats = document.getElementById('congratsMessage');
 
     emails.forEach((email, i) => {
-      const fullBody = `${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`;
-
       const button = document.createElement('button');
       button.textContent = `📩 Email ${i + 1}`;
       button.onclick = () => {
         const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
-        const subject = encodeURIComponent(email.subject);
-        const body = encodeURIComponent(fullBody);
-        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+        const mailSubject = encodeURIComponent(email.subject);
+        const mailBody = encodeURIComponent(`${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`);
+        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
         button.classList.add('sent');
 
-        // Show congrats when all are green
-        const allSent = Array.from(document.querySelectorAll('button')).every(btn =>
-          btn.classList.contains('sent')
-        );
-        if (allSent) {
-          congrats.style.display = 'block';
-        }
+        // Check if all buttons have been marked as sent
+        const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
+        if (allSent) congrats.style.display = 'block';
       };
       container.appendChild(button);
     });
