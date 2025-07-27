@@ -2,124 +2,171 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SSC Chairman Meeting Requests – Aspirants Present Today</title>
+  <title>DoPT Email Sender - SSC CGL</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
     .sent {
       background-color: #d3ffd3 !important;
       pointer-events: none;
     }
+
+    #successMessage {
+      display: none;
+      font-weight: bold;
+      font-size: 18px;
+      color: green;
+      margin-top: 20px;
+    }
   </style>
 </head>
-<body style="font-family: sans-serif; padding: 20px; text-align: center;">
-  <h1>Send Meeting Requests to Chairman, SSC</h1>
-  <p>Click each button to open a drafted email. Sent emails will turn green.</p>
+<body>
+  <h1>Send 20 Emails to SSC Chairman</h1>
 
-  <div id="buttonsContainer" style="display: flex; flex-direction: column; align-items: center; gap: 10px;"></div>
+  <!-- Buttons for sending emails -->
+  <button onclick="handleClick(this, 0)">Send Email 1</button>
+  <button onclick="handleClick(this, 1)">Send Email 2</button>
+  <button onclick="handleClick(this, 2)">Send Email 3</button>
+  <button onclick="handleClick(this, 3)">Send Email 4</button>
+  <button onclick="handleClick(this, 4)">Send Email 5</button>
+  <button onclick="handleClick(this, 5)">Send Email 6</button>
+  <button onclick="handleClick(this, 6)">Send Email 7</button>
+  <button onclick="handleClick(this, 7)">Send Email 8</button>
+  <button onclick="handleClick(this, 8)">Send Email 9</button>
+  <button onclick="handleClick(this, 9)">Send Email 10</button>
+  <button onclick="handleClick(this, 10)">Send Email 11</button>
+  <button onclick="handleClick(this, 11)">Send Email 12</button>
+  <button onclick="handleClick(this, 12)">Send Email 13</button>
+  <button onclick="handleClick(this, 13)">Send Email 14</button>
+  <button onclick="handleClick(this, 14)">Send Email 15</button>
+  <button onclick="handleClick(this, 15)">Send Email 16</button>
+  <button onclick="handleClick(this, 16)">Send Email 17</button>
+  <button onclick="handleClick(this, 17)">Send Email 18</button>
+  <button onclick="handleClick(this, 18)">Send Email 19</button>
+  <button onclick="handleClick(this, 19)">Send Email 20</button>
+
+  <!-- Success message -->
+  <div id="successMessage">
+    ✅ Well done! You've successfully sent all 20 emails!
+  </div>
 
   <script>
     const emails = [
       {
-        subject: "Aspirant Waiting Outside SSC Office, Request for Meeting Today",
-        body: "Respected Sir,\nAn aspirant has come from a distant state and is waiting outside your office to raise concerns about irregularities in SSC CGL 2024 and the need to consider 1st January as the age reckoning date in CGL 2025.\nWe humbly request a short meeting today to present the case."
+        subject: "Request for Urgent Meeting with SSC Chairman",
+        body: "Respected Sir,%0D%0A%0D%0AWe aspirants have come from various states and are currently waiting outside your office, seeking an opportunity to meet you regarding our concerns about SSC CGL 2025. Kindly consider our humble request for a short meeting today.%0D%0A%0D%0ARegards,%0D%0ACGL Aspirants"
       },
       {
-        subject: "Request for Meeting Today, Aspirant Present at SSC Office",
-        body: "Respected Sir,\nAn aspirant from another state is currently at your office, seeking an opportunity to present the age reckoning issue and the unfair impact of SSC CGL 2024 irregularities.\nWe request a few minutes of your time today."
+        subject: "SSC CGL 2025 - Request for Meeting Regarding Age Cutoff",
+        body: "Dear Sir,%0D%0A%0D%0AWe are a group of aspirants waiting outside your office today. We've traveled from multiple states seeking a meeting to discuss the age reckoning issue for CGL 2025. Kindly grant us a few minutes of your time.%0D%0A%0D%0AThank you.%0D%0ASincerely,%0D%0ACandidates Present"
       },
       {
-        subject: "Aspirant at SSC Office to Present Age Cut-Off Concern – Kindly Allow Meeting",
-        body: "Respected Sir,\nAn aspirant has traveled from another part of the country and is presently waiting outside your office to raise concerns about SSC CGL 2024 and the age reckoning issue.\nKindly allow a short meeting today."
+        subject: "Aspirants Waiting Outside for SSC CGL 2025 Discussion",
+        body: "Respected Chairman Sir,%0D%0A%0D%0AWe, a group of CGL aspirants from across India, are present outside your office today. We humbly request a few minutes to discuss urgent concerns related to CGL 2025.%0D%0A%0D%0AThanking you in anticipation.%0D%0ACGL Candidates"
       },
       {
-        subject: "SSC CGL 2024 Aspirant Seeking Meeting – Currently Waiting Outside Office",
-        body: "Respected Sir,\nThe aspirant is outside your office today to raise a genuine concern regarding age reckoning for SSC CGL 2025 due to CGL 2024 irregularities.\nWe request your kind attention and a brief meeting."
+        subject: "Kind Request for Meeting - SSC CGL Aspirants Present",
+        body: "Sir,%0D%0A%0D%0AA group of aspirants have gathered outside your office today. We request your kind permission for a brief meeting to explain our difficulties with the SSC CGL 2025 notification.%0D%0A%0D%0ARegards,%0D%0AAffected Aspirants"
       },
       {
-        subject: "Aspirant from Another State Waiting – Kindly Grant Meeting Today",
-        body: "Respected Sir,\nAn aspirant has reached your office today from another state to submit a request regarding 1st January age cutoff and CGL 2024-related concerns.\nWe humbly request a few minutes of your valuable time."
+        subject: "Today’s Request for Meeting Regarding CGL Age Criteria",
+        body: "Sir,%0D%0A%0D%0AThis is to inform you that aspirants from different regions are present outside your office. We request a brief meeting to discuss age eligibility issues and other irregularities in SSC CGL 2025.%0D%0A%0D%0AThank you.%0D%0ASincerely,%0D%0ACandidates Awaiting"
       },
       {
-        subject: "Kindly Allow Short Meeting – Aspirant Present at Your Office",
-        body: "Respected Sir,\nToday, the SSC aspirant is waiting outside your office to raise the matter of age reckoning and irregularities in SSC CGL 2024.\nPlease consider granting a short meeting."
+        subject: "CGL 2025 Final Attempt Aspirants – Urgent Meeting Request",
+        body: "Respected Sir,%0D%0A%0D%0AWe are outside your office today seeking an urgent meeting to raise our concerns regarding the final attempt eligibility and notification irregularities in SSC CGL 2025.%0D%0A%0D%0AWe humbly await your kind response.%0D%0AThanks and Regards."
       },
       {
-        subject: "SSC Aspirant Waiting Outside – Requesting Urgent Meeting",
-        body: "Respected Sir,\nThe aspirant has come from a faraway state and is waiting outside your office to respectfully seek your time regarding SSC CGL 2024 irregularities and the demand for 1st January as age cutoff.\nKindly allow a short meeting today."
+        subject: "Candidates Waiting Outside SSC Office – Meeting Request",
+        body: "Dear Sir,%0D%0A%0D%0AA group of genuine aspirants are outside your office. Kindly grant us 5 minutes to present our case regarding SSC CGL 2025. Your time means everything to us.%0D%0A%0D%0ARegards,%0D%0ACandidates"
       },
       {
-        subject: "Aspirant Outside SSC Office – Request to Present Age Cut-Off Issue",
-        body: "Respected Sir,\nAn aspirant is at your office today from a different state, seeking to explain why a 1st January age cutoff is essential due to SSC CGL 2024 issues.\nWe request a brief meeting today."
+        subject: "Humble Request for Immediate Meeting – SSC CGL Candidates",
+        body: "Respected Chairman,%0D%0A%0D%0AWe, the affected candidates, are presently at the SSC headquarters. Please grant us a few minutes to discuss crucial issues in the CGL 2025 recruitment.%0D%0A%0D%0AThank you.%0D%0AYours faithfully"
       },
       {
-        subject: "Request for Meeting – Aspirant Present at SSC Office with Urgent Concern",
-        body: "Respected Sir,\nAn aspirant has come in person to highlight the unfair loss of final attempts due to SSC CGL 2024 irregularities.\nThey are waiting outside your office and humbly request a short meeting."
+        subject: "Today’s Visit to SSC HQ – Request for Chairman Interaction",
+        body: "Sir,%0D%0A%0D%0AWe came from different parts of India and are gathered outside SSC HQ today. Kindly consider granting a short interaction with you regarding our urgent appeal on CGL 2025.%0D%0A%0D%0ARegards"
       },
       {
-        subject: "Kindly Grant Meeting Today – Aspirant Waiting Outside with Age Cut-Off Demand",
-        body: "Respected Sir,\nToday, an aspirant has come from another state and is waiting at your office with the hope of presenting the age reckoning concern linked to SSC CGL 2024.\nPlease allow a short meeting."
+        subject: "SSC CGL 2025 – Final Attempt Candidates Seek Hearing",
+        body: "Sir,%0D%0A%0D%0AWe are final attempt aspirants for CGL 2025. Presently outside SSC office, we humbly request an opportunity to meet you briefly.%0D%0A%0D%0AWith due respect,%0D%0AWaiting Candidates"
+      },
+      // Emails 11–20 (repeat or customize as needed)
+      {
+        subject: "Urgent Representation by Aspirants – CGL 2025",
+        body: "Sir,%0D%0A%0D%0AWe are sincerely waiting outside your office to request a short meeting regarding age eligibility and exam fairness in SSC CGL 2025.%0D%0A%0D%0AWe seek your guidance and support.%0D%0ARegards"
       },
       {
-        subject: "Aspirant Has Reached SSC Office Today – Kindly Hear the Request",
-        body: "Respected Sir,\nToday, an aspirant from a different part of the country is at your office to raise the issue of age cutoff and irregularities in SSC CGL 2024.\nWe humbly request a few minutes of your time for a meeting."
+        subject: "CGL 2025 – Kindly Grant Us a Hearing",
+        body: "Dear Sir,%0D%0A%0D%0AWe have arrived today to meet you for clarifying important matters concerning aspirants. Please allow us to express our concerns directly.%0D%0A%0D%0AThank you."
       },
       {
-        subject: "Aspirant Waiting to Be Heard Today – Request for Meeting",
-        body: "Respected Sir,\nAn aspirant is present outside your office today with the hope of discussing a crucial concern affecting many due to SSC CGL 2024 irregularities.\nPlease grant a short meeting."
+        subject: "Today’s Aspirant Gathering at SSC – Request for Attention",
+        body: "Sir,%0D%0A%0D%0AWe are outside your office today. Kindly spare a few minutes for us so we may respectfully present our case on CGL 2025.%0D%0A%0D%0AThanking you."
       },
       {
-        subject: "Aspirant Is at SSC Office – Request to Hear Age Reckoning Issue",
-        body: "Respected Sir,\nAn aspirant has traveled from far to wait outside your office and present a genuine request regarding age reckoning and SSC CGL 2024 irregularities.\nKindly allow a meeting today."
+        subject: "Immediate Audience Requested by CGL Aspirants",
+        body: "Respected Chairman,%0D%0A%0D%0AWe are present outside SSC and seek your kind permission to meet you today regarding our genuine concerns in SSC CGL.%0D%0A%0D%0ARegards"
       },
       {
-        subject: "Aspirant Present at Office to Submit Appeal – Kindly Grant Time Today",
-        body: "Respected Sir,\nAn aspirant is gathered outside your office today to appeal for fair age reckoning in light of SSC CGL 2024 irregularities.\nWe sincerely request a few minutes to share the concern."
+        subject: "From Final Chance Aspirants – SSC CGL 2025",
+        body: "Sir,%0D%0A%0D%0APlease give us a chance to meet you. We are present at your office premises today with hope and faith.%0D%0A%0D%0AThanks."
       },
       {
-        subject: "Aspirant Seeking Meeting Today – Currently at SSC Office",
-        body: "Respected Sir,\nAn aspirant is at your office today to raise a valid concern about age cutoff and process issues in SSC CGL 2024.\nPlease grant time to explain the request in person."
+        subject: "SSC HQ Visit – CGL 2025 Issue",
+        body: "Sir,%0D%0A%0D%0AToday we are here seeking your time to discuss challenges in CGL 2025. Kindly consider our plea.%0D%0A%0D%0ASincerely."
       },
       {
-        subject: "Urgent Matter – Aspirant Waiting Outside to Present Request",
-        body: "Respected Sir,\nAn aspirant who has come from another state is waiting outside your office to discuss the impact of SSC CGL 2024 irregularities and seek reconsideration of the age cutoff.\nWe respectfully request a meeting today."
+        subject: "Aspirants Request Meeting at SSC Today",
+        body: "Dear Sir,%0D%0A%0D%0AA group of us is outside SSC today. Please allow us to speak to you regarding important issues in this year's notification.%0D%0A%0D%0ARegards"
       },
       {
-        subject: "Kindly Grant Meeting Today – Aspirant Waiting to Submit Age Cut-Off Concern",
-        body: "Respected Sir,\nAn aspirant is outside your office today, requesting to be heard on the urgent matter of SSC CGL 2024 and the need for a fair age reckoning policy.\nPlease allow a short meeting."
+        subject: "Kind Appeal from Aspirants Present Today",
+        body: "Sir,%0D%0A%0D%0AWe are waiting today outside your office to humbly request your time and attention on age cut-off related grievances.%0D%0A%0D%0AThank you."
       },
       {
-        subject: "SSC Aspirant Present at Office – Requesting Your Time Today",
-        body: "Respected Sir,\nAn aspirant is assembled today at your office to discuss how SSC CGL 2024 irregularities affected final attempts and why 1st January should be the age cutoff.\nPlease give a few minutes to explain."
+        subject: "Today’s CGL Aspirants at SSC – Request for Meeting",
+        body: "Sir,%0D%0A%0D%0AWe are present outside your office, united by the concern over final attempt eligibility. Kindly allow us to meet you.%0D%0A%0D%0ARegards."
       },
       {
-        subject: "Time-Sensitive Appeal – Aspirant Waiting Outside Office",
-        body: "Respected Sir,\nAn aspirant is physically present at your office today to raise a time-sensitive issue concerning SSC CGL 2024 irregularities and age reckoning for affected candidates.\nWe humbly request a meeting."
-      },
-      {
-        subject: "Request for Today’s Meeting – Aspirant Waiting to Present Grievance",
-        body: "Respected Sir,\nAn aspirant is gathered outside your office to explain how process lapses in SSC CGL 2024 affected many candidates. We seek justice through fair age reckoning.\nKindly allow a short meeting today."
+        subject: "Final Representation on CGL 2025 by Present Candidates",
+        body: "Sir,%0D%0A%0D%0AWe’ve come today as a last resort to meet you and seek fairness in this recruitment cycle. Please grant us an audience.%0D%0A%0D%0ASincerely"
       }
     ];
 
-    const container = document.getElementById('buttonsContainer');
-    emails.forEach((email, i) => {
-      const fullBody = `${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`;
+    function handleClick(button, index) {
+      button.classList.add("sent");
+      button.textContent = "Sent";
+      button.disabled = true;
 
-      const button = document.createElement('button');
-      button.textContent = `📩 Email ${i + 1}`;
-      button.style = "font-size: 16px; padding: 10px 20px;";
-      button.onclick = () => {
-        const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
-        const mailSubject = encodeURIComponent(email.subject);
-        const mailBody = encodeURIComponent(fullBody);
-        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
-        button.classList.add('sent');
-      };
-      container.appendChild(button);
-    });
+      const subject = emails[index].subject;
+      const body = emails[index].body;
+      window.location.href = `mailto:chairman@ssc.nic.in,chairmanssc@gmail.com?subject=${subject}&body=${body}`;
+
+      const all = document.querySelectorAll("button");
+      const sent = document.querySelectorAll("button.sent");
+
+      if (sent.length === all.length) {
+        document.getElementById("successMessage").style.display = "block";
+      }
+    }
   </script>
-
-  <div style="position: fixed; top: 10px; left: 10px;">
-    <img src="s-icon.jpeg" alt="S Icon" style="width: 60px; height: 60px; border-radius: 10px;">
-  </div>
 </body>
 </html>
