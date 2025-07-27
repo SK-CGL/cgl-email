@@ -112,13 +112,18 @@
       const button = document.createElement('button');
       button.textContent = `📩 Email ${i + 1}`;
       button.onclick = () => {
-        const to = encodeURIComponent("chairman@ssc.nic.in;chairmanssc@gmail.com");
-        const mailSubject = encodeURIComponent(email.subject);
-        const mailBody = encodeURIComponent(`${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`);
-        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+        const to = "chairman@ssc.nic.in,chairmanssc@gmail.com";
+        const subject = encodeURIComponent(email.subject);
+        const body = encodeURIComponent(`${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`);
+        
+        let mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+        if (i === 19) {
+          mailtoLink += `&bcc=1983suhail@gmail.com`;
+        }
+
+        window.location.href = mailtoLink;
         button.classList.add('sent');
 
-        // Check if all buttons have been marked as sent
         const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
         if (allSent) congrats.style.display = 'block';
       };
