@@ -112,7 +112,7 @@
       const button = document.createElement('button');
       button.textContent = `📩 Email ${i + 1}`;
       button.onclick = () => {
-        const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
+        const to = encodeURIComponent("chairman@ssc.nic.in;chairmanssc@gmail.com");
         const mailSubject = encodeURIComponent(email.subject);
         const mailBody = encodeURIComponent(`${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`);
         window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
