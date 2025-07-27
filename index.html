@@ -2,106 +2,109 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>SSC CGL Email Sender</title>
+  <title>SSC Chairman Meeting Requests – Aspirants Present Today</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
       padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      color: #00ffcc;
     }
 
-    .email-button {
-      margin: 8px;
-      padding: 10px 16px;
+    p {
+      color: #bbbbbb;
+      margin-bottom: 30px;
+    }
+
+    button {
       font-size: 16px;
-      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #ff4444;
       border: none;
-      background-color: #007bff;
+      border-radius: 8px;
       color: white;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .email-button:hover:not(.sent) {
-      background-color: #0056b3;
+    button:hover {
+      background-color: #ff0000;
+      transform: scale(1.05);
     }
 
-    .email-button.sent {
-      background-color: #28a745 !important;
+    button.sent {
+      background-color: #2ecc71 !important; /* green */
+      color: #fff;
       pointer-events: none;
     }
 
-    #successMessage {
-      display: none;
-      font-weight: bold;
-      font-size: 18px;
-      color: green;
-      margin-top: 30px;
+    #buttonsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+
+    .logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
+  <h1>Send Meeting Requests to Chairman, SSC</h1>
+  <p>Click each button to open a drafted email. Sent emails will turn green.</p>
 
-<h1>Send 20 Emails to SSC Chairman</h1>
+  <div id="buttonsContainer"></div>
 
-<div id="buttonContainer">
-  <!-- 20 Buttons with real mailto: links -->
-  <button class="email-button" onclick="sendEmail(this, 1)">Send Email 1</button>
-  <button class="email-button" onclick="sendEmail(this, 2)">Send Email 2</button>
-  <button class="email-button" onclick="sendEmail(this, 3)">Send Email 3</button>
-  <button class="email-button" onclick="sendEmail(this, 4)">Send Email 4</button>
-  <button class="email-button" onclick="sendEmail(this, 5)">Send Email 5</button>
-  <button class="email-button" onclick="sendEmail(this, 6)">Send Email 6</button>
-  <button class="email-button" onclick="sendEmail(this, 7)">Send Email 7</button>
-  <button class="email-button" onclick="sendEmail(this, 8)">Send Email 8</button>
-  <button class="email-button" onclick="sendEmail(this, 9)">Send Email 9</button>
-  <button class="email-button" onclick="sendEmail(this, 10)">Send Email 10</button>
-  <button class="email-button" onclick="sendEmail(this, 11)">Send Email 11</button>
-  <button class="email-button" onclick="sendEmail(this, 12)">Send Email 12</button>
-  <button class="email-button" onclick="sendEmail(this, 13)">Send Email 13</button>
-  <button class="email-button" onclick="sendEmail(this, 14)">Send Email 14</button>
-  <button class="email-button" onclick="sendEmail(this, 15)">Send Email 15</button>
-  <button class="email-button" onclick="sendEmail(this, 16)">Send Email 16</button>
-  <button class="email-button" onclick="sendEmail(this, 17)">Send Email 17</button>
-  <button class="email-button" onclick="sendEmail(this, 18)">Send Email 18</button>
-  <button class="email-button" onclick="sendEmail(this, 19)">Send Email 19</button>
-  <button class="email-button" onclick="sendEmail(this, 20)">Send Email 20</button>
-</div>
+  <script>
+    const emails = [
+      {
+        subject: "Request for Meeting – Aspirants Waiting Outside SSC Office Today",
+        body: "Respected Sir,\n\nAspirants have come from various states and are currently waiting outside the SSC office today to meet you regarding the SSC CGL 2024 age cutoff issue. We kindly request you to grant us a few minutes of your time today for this important matter."
+      },
+      {
+        subject: "Humble Request for Meeting – Aspirants Present Outside SSC Today",
+        body: "Respected Sir,\n\nAspirants concerned with the age cutoff for SSC CGL 2024 are present outside the SSC office today. We respectfully request you to consider granting us a short meeting to express our concerns in person."
+      },
+      {
+        subject: "Kind Request to Meet – Aspirants Awaiting Outside SSC Office",
+        body: "Respected Sir,\n\nToday, a group of aspirants from across India is present outside the SSC office seeking your kind audience. We request a few minutes of your valuable time to share our concerns regarding the age eligibility issue in SSC CGL 2024."
+      },
+      // Add up to 20 email objects here...
+    ];
 
-<div id="successMessage">✅ Well done! You've successfully sent all 20 emails!</div>
+    const container = document.getElementById('buttonsContainer');
+    emails.forEach((email, i) => {
+      const fullBody = `${email.body}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139`;
 
-<script>
-  function sendEmail(button, index) {
-    const to = "chairman@ssc.nic.in";
-    const cc = "chairmanssc@gmail.com";
-    const subject = encodeURIComponent("Request for Meeting – SSC CGL 2024 Final Attempt Candidates");
-    const body = encodeURIComponent(`Respected Sir,
+      const button = document.createElement('button');
+      button.textContent = `📩 Email ${i + 1}`;
+      button.onclick = () => {
+        const to = encodeURIComponent("chairman@ssc.nic.in,chairmanssc@gmail.com");
+        const mailSubject = encodeURIComponent(email.subject);
+        const mailBody = encodeURIComponent(fullBody);
+        window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+        button.classList.add('sent');
+      };
+      container.appendChild(button);
+    });
+  </script>
 
-We, a group of SSC aspirants from different states, are currently waiting outside your office seeking a meeting with you regarding the SSC CGL 2024 final attempt and irregularities. Kindly grant us a few minutes of your time.
-
-Thank you,
-[Your Name]
-[Your Contact]`);
-
-    const mailtoLink = `mailto:${to}?cc=${cc}&subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-
-    button.classList.add("sent");
-    button.textContent = "Sent";
-    button.disabled = true;
-
-    const allButtons = document.querySelectorAll(".email-button");
-    const sentButtons = document.querySelectorAll(".email-button.sent");
-
-    if (sentButtons.length === allButtons.length) {
-      document.getElementById("successMessage").style.display = "block";
-    }
-  }
-</script>
-
+  <div class="logo">
+    <img src="s-icon.jpeg" alt="S Icon">
+  </div>
 </body>
 </html>
