@@ -174,7 +174,7 @@ emails.forEach((email, i) => {
   const button = document.createElement('button');
   button.textContent = `📩 Email ${i + 1}`;
   button.onclick = () => {
-    const to = "chairman@ssc.nic.in,chairmanssc@gmail.com";
+    const to = "chairman@ssc.nic.in;chairmanssc@gmail.com";
     const cleanedBody = email.body.trimEnd();
     const mailBody = encodeURIComponent(
       cleanedBody + "\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139"
