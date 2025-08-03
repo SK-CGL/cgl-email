@@ -174,13 +174,10 @@ emails.forEach((email, i) => {
   const button = document.createElement('button');
   button.textContent = `📩 Email ${i + 1}`;
   button.onclick = () => {
-    const to = "chairman@ssc.nic.in;chairmanssc@gmail.com";
+    const to = "chairman@ssc.nic.in,chairmanssc@gmail.com";
     const cleanedBody = email.body.trimEnd();
-    const mailBody = encodeURIComponent(
-      cleanedBody + "\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139"
-    );
-    const mailSubject = encodeURIComponent(email.subject);
-    window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+    const fullMail = `mailto:${to}?subject=${email.subject}&body=${cleanedBody}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139`;
+    window.location.href = encodeURI(fullMail);
     button.classList.add('sent');
     const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
     if (allSent) congrats.style.display = 'block';
