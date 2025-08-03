@@ -237,24 +237,26 @@ Please allow a short meeting before Tier 1 begins. We are last attempt aspirants
 
   emails.forEach((email, i) => {
     const button = document.createElement('button');
-    button.textContent = `📩 Email ${i + 1}`;
-    button.onclick = () => {
-      const to = = 'chairman@ssc.nic.in,chairmanssc@gmail.com'; // No encodeURIComponent here!
-      const mailSubject = encodeURIComponent(email.subject);
-      const mailBody = encodeURIComponent(
-        email.body + "\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139"
-      );
-      window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
-      button.classList.add('sent');
+emails.forEach((email, i) => {
+  const button = document.createElement('button');
+  button.textContent = `📩 Email ${i + 1}`;
+  button.onclick = () => {
+    const to = 'chairman@ssc.nic.in,chairmanssc@gmail.com'; // FIXED: variable name and separator
+    const mailSubject = encodeURIComponent(email.subject);
+    const mailBody = encodeURIComponent(
+      email.body + "\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139"
+    );
+    window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+    button.classList.add('sent');
 
-      // Show congrats message if all emails are sent
-      const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
-      if (allSent) {
-        congrats.style.display = 'block';
-      }
-    };
-    container.appendChild(button);
-  });
+    // Show congrats message if all emails are sent
+    const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
+    if (allSent) {
+      congrats.style.display = 'block';
+    }
+  };
+  container.appendChild(button);
+});
 </script>
 </body>
 </html>
