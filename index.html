@@ -11,8 +11,16 @@
       padding: 20px;
       text-align: center;
     }
-    h1 { color: #00ffcc; }
-    p { color: #bbbbbb; margin-bottom: 30px; }
+
+    h1 {
+      color: #00ffcc;
+    }
+
+    p {
+      color: #bbbbbb;
+      margin-bottom: 30px;
+    }
+
     button {
       font-size: 16px;
       padding: 10px 20px;
@@ -23,15 +31,18 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
+
     button:hover {
       background-color: #ff0000;
       transform: scale(1.05);
     }
+
     button.sent {
       background-color: #2ecc71 !important;
       color: #fff;
       pointer-events: none;
     }
+
     #buttonsContainer {
       display: flex;
       flex-direction: column;
@@ -40,12 +51,19 @@
       max-width: 600px;
       margin: auto;
     }
-    .logo { position: fixed; top: 10px; left: 10px; }
+
+    .logo {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+    }
+
     .logo img {
       width: 60px;
       height: 60px;
       border-radius: 10px;
     }
+
     #congratsMessage {
       display: none;
       margin-top: 30px;
@@ -58,132 +76,225 @@
   <div class="logo">
     <img src="s-icon.jpeg" alt="S Icon" />
   </div>
+
   <h1>Send Meeting Requests to Chairman, SSC</h1>
   <p>Click each button to open a drafted email. Sent emails will turn green.</p>
+
   <div id="buttonsContainer"></div>
   <div id="congratsMessage">🎉 All 20 emails sent. Well done! 🎉</div>
 
 <script>
-const emails = [
-  {
-    subject: "Request for Urgent Meeting – CGL 2025 Age Reckoning Date",
-    body: `Respected Sir,
-DoPT advised SSC to set the CGL 2025 age reckoning date as 01.01.2025, but it remains 01.08.2025. Last attempt candidates like us are losing out as Tier 1 nears. Please allow a short urgent meeting for our appeal before the exam.`
-  },
-  {
-    subject: "Humble Appeal for CGL 2025 Age Reckoning Meeting",
-    body: `Dear Sir,
-Despite DoPT's clear recommendation for 01.01.2025, CGL 2025 still uses 01.08.2025 as age cutoff. This is excluding thousands of last attempt aspirants. We humbly request an immediate meeting before Tier 1 starts.`
-  },
-  {
-    subject: "URGENT: Meeting on CGL 2025 Age Cut-Off",
-    body: `Respected Sir,
-DoPT recommended 1 Jan 2025 as age date, but SSC has kept 1 Aug 2025. Many last attempt candidates are being excluded unjustly. Kindly grant us a brief meeting before Tier 1 for our representation.`
-  },
-  {
-    subject: "Please Allow Meeting – CGL 2025 Age Issue Not Fixed",
-    body: `Respected Sir,
-SSC has not acted on DoPT’s advice to set 01.01.2025 as the age reckoning date for CGL 2025, and last attempt candidates are suffering. We urgently request a short in-person meeting before Tier 1.`
-  },
-  {
-    subject: "CGL 2025 – Urgent Meeting Request on Age Reckoning",
-    body: `Dear Sir,
-The CGL 2025 age cutoff remains 01.08.2025 instead of the recommended 01.01.2025. Last attempt aspirants are being unfairly denied their chance. Please permit a brief meeting before the exam.`
-  },
-  {
-    subject: "Immediate Meeting Needed: CGL 2025 Age Cutoff",
-    body: `Respected Sir,
-DoPT’s letter supported 01.01.2025 as age date. SSC has not revised the cutoff, and Tier 1 is days away. Please grant us a short urgent meeting to present the case.`
-  },
-  {
-    subject: "Urgent CGL 2025 Meeting – Age Reckoning Unresolved",
-    body: `Dear Sir,
-Though DoPT recommended 01.01.2025 for CGL 2025, the cutoff remains 01.08.2025, costing last attempt candidates their chances. We request a short meeting ahead of Tier 1.`
-  },
-  {
-    subject: "Humble Request: CGL 2025 Age Cut-off Meeting",
-    body: `Respected Sir,
-CGL 2025's unchanged age cutoff of 01.08.2025 is unfair after DoPT's 01.01.2025 advice. Please let us present our concern personally in a brief meeting before Tier 1 begins.`
-  },
-  {
-    subject: "SOS Meeting: CGL 2025 Age Date Still Unresolved",
-    body: `Dear Sir,
-Despite DoPT’s support for 1 Jan, CGL 2025's age reckoning remains 1 Aug. Last attempt candidates stand disqualified. We seek a short urgent meeting before Tier 1 to appeal.`
-  },
-  {
-    subject: "Kindly Grant Meeting – CGL 2025 Age Reckoning",
-    body: `Respected Sir,
-The age cutoff (01.08.2025) is yet to be updated to the DoPT-backed date of 01.01.2025 for CGL 2025. Last attempt candidates need your kind intervention through a meeting.`
-  },
-  {
-    subject: "SSC CGL 2025 – Request for Age Date Meeting",
-    body: `Dear Sir,
-DoPT directed 01.01.2025 for age reckoning but SSC has not changed from 01.08.2025. Please allow a brief meeting for affected last attempt aspirants before Tier 1.`
-  },
-  {
-    subject: "Need for Meeting: Unchanged CGL 2025 Age Reckoning",
-    body: `Sir,
-CGL 2025 retains 01.08.2025 for age reckoning, despite DoPT’s 01.01.2025 advice. Last attempt aspirants lose their rightful chance. Please grant us a short meeting before Tier 1.`
-  },
-  {
-    subject: "SSC CGL 2025 – Final Attempt Aspirants’ Meeting Appeal",
-    body: `Respected Sir,
-CGL 2025 age cutoff stands uncorrected at 1 Aug. Despite DoPT recommending 1 Jan, many are losing their last opportunity. Kindly permit a meeting before the exam.`
-  },
-  {
-    subject: "Age Reckoning for CGL 2025 Unresolved – Need Meeting",
-    body: `Dear Sir,
-Last attempt aspirants remain excluded as SSC hasn’t implemented DoPT’s 01.01.2025 advice for age reckoning. Please approve a short meeting before Tier 1.`
-  },
-  {
-    subject: "Meeting Appeal – CGL 2025 Age Date Still 1 Aug",
-    body: `Sir,
-Despite DoPT’s letter, SSC continues with 01.08.2025 age cutoff. Many last attempt candidates are unfairly blocked. Please let us present this concern before Tier 1.`
-  },
-  {
-    subject: "Urgent Meeting Request – CGL 2025 Age Issue",
-    body: `Respected Sir,
-Unchanged age reckoning date for CGL 2025 (01.08.2025 vs DoPT’s 01.01.2025) is excluding last attempt candidates. Kindly meet us for urgent representation.`
-  },
-  {
-    subject: "Final Request – CGL 2025 Age Reckoning Update",
-    body: `Dear Sir,
-We respectfully request a short meeting before Tier 1 as the age cutoff remains 1 Aug 2025, despite DoPT’s support for 1 Jan. Our last chance is slipping.`
-  },
-  {
-    subject: "CGL 2025 – Need Meeting on DoPT Age Advice",
-    body: `Sir,
-DoPT’s advice on 01.01.2025 age reckoning is unheeded in CGL 2025’s notification. Many candidates lose their last attempt. Please grant a brief meeting soon.`
-  },
-  {
-    subject: "Request for Appeal Meeting – CGL 2025 Last Attempt",
-    body: `Respected Sir,
-CGL 2025's age cutoff remains 1 Aug, not DoPT’s suggested 1 Jan. We seek a short meeting before Tier 1 to present our concern and documents.`
-  },
-  {
-    subject: "Meeting Request – CGL 2025 Age Cutoff Excluding Candidates",
-    body: `Dear Sir,
-With Tier 1 near, unchanged age cutoff of 01.08.2025 is excluding last attempt aspirants, against DoPT’s recommendation for 01.01.2025. Please allow an urgent short meeting.`
-  }
-];
+  const emails = [
+    {
+      subject: "Request for Urgent Meeting Regarding Age Reckoning Issue in SSC CGL 2025 – Exam Starts 13 August",
+      body: `Respected Sir,
+We, the aggrieved last attempt candidates of SSC CGL 2025, humbly request you to kindly grant us an urgent meeting regarding the unresolved age reckoning issue.
+As you are aware, the DoPT issued a letter on 1 July 2025 recommending that SSC consider revising the age reckoning date to 01.01.2025 for CGL 2025 and Phase 13. However, no action has been taken yet, and with Tier 1 scheduled from 13 August, our entire future hangs in the balance.
+Despite our continuous efforts, including filing RTIs and multiple follow-up emails, SSC has not responded to our concerns. We urgently seek a few minutes of your time to present the matter in person before it’s too late.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Humble Request for a Short Meeting – CGL 2025 Age Reckoning (01.01.2025) Relief",
+      body: `Dear Sir,
+This is a sincere appeal from last attempt SSC CGL aspirants who are severely impacted by the current age reckoning date of 01.08.2025 in CGL 2025.
+We had earlier met you, and you had kindly assured us that SSC would act if DoPT sends a recommendation. DoPT fulfilled that on 1 July, yet the age reckoning remains unchanged. Now, with Tier 1 exam just days away, thousands of aspirants face disqualification.
+We request a brief meeting to explain our situation and submit documents in person. Kindly consider our request on urgent humanitarian grounds.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "URGENT: Meeting Request – CGL 2025 Age Reckoning Date (01.01.2025) for Last Attempt Candidates",
+      body: `Respected Chairman Sir,
+We respectfully seek an urgent meeting before the commencement of SSC CGL 2025 Tier 1 on 13 August. We are last attempt candidates, and despite DoPT’s letter to SSC dated 01.07.2025, the age reckoning date has not been revised to 01.01.2025.
+The issue is causing widespread distress among aspirants who prepared for years based on prior SSC patterns. Your intervention is our last hope. We assure you it will only take a few minutes to present our case.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Please Grant a Meeting – CGL 2025 Age Reckoning Date (01.01.2025) Not Yet Revised",
+      body: `Respected Sir,
+We are reaching out with folded hands to request an urgent meeting regarding the non-implementation of age reckoning as 01.01.2025 in SSC CGL 2025.
+Despite DoPT’s direction on 1 July 2025 and your previous assurance to us, SSC has not revised the reckoning date. With Tier 1 approaching on 13 August, we are being denied our last and rightful attempt.
+Please grant us a short meeting to present supporting documents and our appeal in person.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "CGL 2025 Age Reckoning – Urgent Meeting Request Before Exam Begins",
+      body: `Dear Chairman Sir,
+This is a humble request for a short meeting from a group of last attempt SSC CGL aspirants, who are deeply impacted by the unaddressed age reckoning issue in CGL 2025.
+You had earlier assured us that SSC would act on a DoPT recommendation. That letter was issued on 1 July 2025, yet no change has been made. The exam is now almost here – Tier 1 begins on 13 August.
+Kindly allow us a few minutes to meet and discuss this in person. We remain hopeful of your support.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Request for Immediate Meeting Regarding Age Reckoning in SSC CGL 2025",
+      body: `Respected Sir,
+We are a group of last attempt SSC CGL aspirants requesting your kind intervention in the unresolved issue of age reckoning for CGL 2025.
+The DoPT's letter dated 01.07.2025 clearly advised SSC to take appropriate action. However, with Tier 1 scheduled from 13 August, no response or relief has been given to the affected aspirants.
+Please grant us an urgent meeting to present our concern and documents before it is too late.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Urgent Meeting Request Before SSC CGL 2025 Exam – Age Reckoning Appeal",
+      body: `Dear Sir,
+We sincerely request a short meeting regarding the age reckoning issue for SSC CGL 2025. Despite the DoPT’s recommendation on 1 July 2025, no action has been taken.
+As last attempt candidates, we are losing our final opportunity due to procedural delay. Kindly allow us a few minutes of your time before the exam begins.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Humble Meeting Request – CGL 2025 Age Reckoning (01.01.2025) Not Considered Yet",
+      body: `Respected Chairman Sir,
+We write on behalf of thousands of last attempt aspirants who are losing their chance in CGL 2025 due to non-implementation of 01.01.2025 as age reckoning.
+Though the DoPT directed SSC on 1 July, no action has been taken. With Tier 1 now only days away, we plead for a short meeting to share our representation directly.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "SOS Request for Meeting – Age Reckoning Date Relief for CGL 2025",
+      body: `Dear Sir,
+This is a final appeal for a meeting from last attempt SSC CGL candidates. The age reckoning issue remains unresolved even after the DoPT’s formal communication to SSC on 01.07.2025.
+With Tier 1 starting from 13 August, your immediate attention is our only hope. Please grant us a brief audience to explain and submit relevant documents.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Kindly Allow Meeting – CGL 2025 Age Reckoning Remains Pending Despite DoPT Letter",
+      body: `Respected Sir,
+We are last attempt aspirants requesting a meeting regarding the pending revision of age reckoning date in SSC CGL 2025.
+You had kindly assured action if DoPT sent instructions. That letter came on 1 July, yet no decision has followed. Please give us a chance to speak before Tier 1 commences.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Request to Meet Regarding Non-Implementation of Age Reckoning in CGL 2025",
+      body: `Dear Chairman Sir,
+With the Tier 1 exam beginning on 13 August, we request an urgent meeting to discuss the unresolved age reckoning issue. The matter was officially forwarded by DoPT, yet no response has followed.
+Please hear our representation once. We are only asking for the same fair treatment given in earlier SSC exams.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "CGL 2025 – Age Reckoning Date Unresolved, Kindly Allow Meeting",
+      body: `Sir,
+We are writing to request a meeting with you regarding the age reckoning date for SSC CGL 2025, which still stands as 01.08.2025, contrary to the DoPT’s instruction dated 01.07.2025.
+Being last attempt candidates, we are left with no option if urgent relief is not provided. Kindly grant us your valuable time before the exam begins.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "SSC CGL 2025 – Last Attempt Aspirants Request Immediate Meeting",
+      body: `Respected Sir,
+We humbly request your time for a brief meeting to present our grievance regarding the age reckoning date in CGL 2025, which remains unchanged despite DoPT support.
+With the Tier 1 exam only days away, we hope for your kind intervention. Please consider our sincere request.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Request to Present Age Reckoning Representation Before SSC CGL 2025 Exam",
+      body: `Dear Sir,
+This is an appeal from a group of last attempt SSC CGL aspirants. The DoPT’s letter sent to SSC on 1 July remains unacted upon, and we are losing our final opportunity.
+Please grant us an urgent meeting to present our case. We assure it will be brief and respectful.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Meeting Appeal – Age Reckoning Date (01.01.2025) Still Not Considered",
+      body: `Sir,
+We respectfully seek a short meeting to discuss why SSC has not implemented 01.01.2025 as the age reckoning date for CGL 2025 despite DoPT’s advice.
+Many of us are last attempt candidates and deserve at least one opportunity to be heard. Please grant us this chance before the exam begins.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Urgent Request: Please Allow Meeting on Age Reckoning for CGL 2025",
+      body: `Respected Sir,
+The CGL 2025 exam is set to begin from 13 August, yet the issue of age reckoning remains unresolved. We are last attempt aspirants requesting a short meeting to present our grievance.
+The DoPT letter dated 1 July 2025 in our favor remains unanswered. Please let us meet once to explain our position.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Final Request for Meeting – CGL 2025 Age Reckoning Not Addressed",
+      body: `Dear Chairman Sir,
+This is a humble plea from aspirants in their last permissible attempt. Kindly give us a chance to present our representation regarding the age reckoning date.
+With just days to go before the Tier 1 exam, time is running out for us. Your response can help resolve a serious injustice.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Age Reckoning Relief for CGL 2025 – Kindly Grant a Meeting",
+      body: `Sir,
+We request your time for a very short meeting before Tier 1 of CGL 2025 begins. We want to raise the issue of non-implementation of 01.01.2025 age reckoning, despite DoPT’s direction.
+We are last attempt candidates, and your support is our only hope now.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Request to Present Last Attempt Candidates’ Appeal – CGL 2025",
+      body: `Respected Sir,
+We would be grateful if you could grant us a short meeting. The DoPT letter recommending 01.01.2025 as age reckoning has not been acted upon.
+Please let us present our documents and brief appeal in person before Tier 1 begins.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    },
+    {
+      subject: "Kindly Meet Us Regarding Age Reckoning – CGL 2025 Begins 13 August",
+      body: `Dear Sir,
+We’re requesting an urgent meeting regarding the age reckoning issue in SSC CGL 2025. DoPT has already advised revision to 01.01.2025, but no step has been taken so far.
+Please allow a short meeting before Tier 1 begins. We are last attempt aspirants, and this is our final plea.
+Aggrieved SSC CGL Aspirants
++91 82192 39139
++91 87007 25302`
+    }
+  ];
 
-const container = document.getElementById('buttonsContainer');
-const congrats = document.getElementById('congratsMessage');
+  const container = document.getElementById('buttonsContainer');
+  const congrats = document.getElementById('congratsMessage');
 
-emails.forEach((email, i) => {
-  const button = document.createElement('button');
-  button.textContent = `📩 Email ${i + 1}`;
-  button.onclick = () => {
-    const to = "chairman@ssc.nic.in,chairmanssc@gmail.com";
-    const cleanedBody = email.body.trimEnd();
-    const fullMail = `mailto:${to}?subject=${email.subject}&body=${cleanedBody}\n\nSincerely,\nConcerned SSC CGL 2024 Aspirants\nContact: 8700725302, 8219239139`;
-    window.location.href = encodeURI(fullMail);
-    button.classList.add('sent');
-    const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
-    if (allSent) congrats.style.display = 'block';
-  };
-  container.appendChild(button);
-});
+  emails.forEach((email, i) => {
+    const button = document.createElement('button');
+    button.textContent = `📩 Email ${i + 1}`;
+    button.onclick = () => {
+      const to = "chairman@ssc.nic.in,chairmanssc@gmail.com"; // No encodeURIComponent here!
+      const mailSubject = encodeURIComponent(email.subject);
+      const mailBody = encodeURIComponent(
+        email.body + "\n\nSincerely,\nConcerned SSC CGL 2024 Aspirant\nContact: +91-8219239139"
+      );
+      window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+      button.classList.add('sent');
+
+      // Show congrats message if all emails are sent
+      const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
+      if (allSent) {
+        congrats.style.display = 'block';
+      }
+    };
+    container.appendChild(button);
+  });
 </script>
 </body>
 </html>
