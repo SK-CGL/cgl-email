@@ -11,16 +11,8 @@
       padding: 20px;
       text-align: center;
     }
-
-    h1 {
-      color: #00ffcc;
-    }
-
-    p {
-      color: #bbbbbb;
-      margin-bottom: 30px;
-    }
-
+    h1 { color: #00ffcc; }
+    p { color: #bbbbbb; margin-bottom: 30px; }
     button {
       font-size: 16px;
       padding: 10px 20px;
@@ -31,18 +23,15 @@
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
     button:hover {
       background-color: #ff0000;
       transform: scale(1.05);
     }
-
     button.sent {
       background-color: #2ecc71 !important;
       color: #fff;
       pointer-events: none;
     }
-
     #buttonsContainer {
       display: flex;
       flex-direction: column;
@@ -51,19 +40,12 @@
       max-width: 600px;
       margin: auto;
     }
-
-    .logo {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-    }
-
+    .logo { position: fixed; top: 10px; left: 10px; }
     .logo img {
       width: 60px;
       height: 60px;
       border-radius: 10px;
     }
-
     #congratsMessage {
       display: none;
       margin-top: 30px;
@@ -224,29 +206,30 @@ Please allow this today.`
   }
 ];
 
-  const container = document.getElementById('buttonsContainer');
-  const congrats = document.getElementById('congratsMessage');
+const container = document.getElementById('buttonsContainer');
+const congrats = document.getElementById('congratsMessage');
 
-  emails.forEach((email, i) => {
-    const button = document.createElement('button');
-    button.textContent = `📩 Email ${i + 1}`;
-    button.onclick = () => {
-      const to = "chairman@ssc.nic.in,chairmanssc@gmail.com"; // No encodeURIComponent here!
-      const mailSubject = encodeURIComponent(email.subject);
-      const mailBody = encodeURIComponent(
-  email.body.trimEnd() + "\n\nAggrieved SSC CGL Aspirants\n+91 82192 39139\n+91 87007 25302"
-);
-      window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
-      button.classList.add('sent');
-
-      // Show congrats message if all emails are sent
-      const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
-      if (allSent) {
-        congrats.style.display = 'block';
-      }
-    };
-    container.appendChild(button);
-  });
+emails.forEach((email, i) => {
+  const button = document.createElement('button');
+  button.textContent = `📩 Email ${i + 1}`;
+  button.onclick = () => {
+    let to;
+    if (i === 6) {
+      to = "chairman@ssc.nic.in,chairmanssc@gmail.com,ChairmanSs@proton.me";
+    } else {
+      to = "chairman@ssc.nic.in,chairmanssc@gmail.com";
+    }
+    const mailSubject = encodeURIComponent(email.subject);
+    const mailBody = encodeURIComponent(
+      email.body.trimEnd() + "\n\nAggrieved SSC CGL Aspirants\n+91 82192 39139\n+91 87007 25302"
+    );
+    window.location.href = `mailto:${to}?subject=${mailSubject}&body=${mailBody}`;
+    button.classList.add('sent');
+    const allSent = Array.from(document.querySelectorAll('button')).every(btn => btn.classList.contains('sent'));
+    if (allSent) congrats.style.display = 'block';
+  };
+  container.appendChild(button);
+});
 </script>
 </body>
 </html>
